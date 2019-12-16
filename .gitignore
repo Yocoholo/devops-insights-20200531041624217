@@ -3,7 +3,10 @@ build
 reports
 screenshots
 tests/coverage
+.nyc_output
 .DS_Store
 
 junitfvt.xml
 chromedriver.log
+tests/coverage-summary.json
+mochatest.json
