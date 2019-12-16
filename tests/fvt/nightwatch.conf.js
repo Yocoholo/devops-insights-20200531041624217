@@ -35,6 +35,11 @@ module.exports = {
       desiredCapabilities: {
         browserName: 'chrome',
         'goog:chromeOptions': {
+          "args": [
+            "--headless",
+            "--no-sandbox",
+            "--disable-gpu"
+          ],
           w3c: false,
           prefs: { 'profile.managed_default_content_settings.notifications': 1 }
         },
