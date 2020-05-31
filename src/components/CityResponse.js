@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ZipResponse(props) {
+function CityResponse(props) {
 
     if(props.responseData === null || props.responseData === '') {
         return null;
@@ -56,4 +56,4 @@ function ZipResponse(props) {
     return null
 }
   
-export default ZipResponse
+export default CityResponse
