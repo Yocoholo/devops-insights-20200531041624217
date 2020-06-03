@@ -5,14 +5,14 @@ function City(props) {
     const [validationError, setValidationError] = useState(null);
 
     const validate = (event) => {
-        const cityCodePattern = /^[A-Za-z]+$/;
+        const cityCodePattern = /^[A-Za-z ]+$/;
         const valid = cityCodePattern.test(event.target.value);
         if (!valid) {
             setValidationError('* should be any letter between a-z');
             props.clearResponse();
         } else {
             setValidationError('');
-            props.onZipChange(event.target.value);
+            props.onCityChange(event.target.value);
         }
     };
 
@@ -29,8 +29,8 @@ function City(props) {
                     <input 
                         type="text" 
                         className="form-control" 
-                        id="usr" 
-                        placeholder="NZ City name (a-z)"
+                        id="textbox" 
+                        placeholder="example: Bulls"
                         onKeyPress={(event) => {
                             if (event.key === "Enter") {
                                 validate(event);
