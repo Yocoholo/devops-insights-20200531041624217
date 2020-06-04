@@ -5,10 +5,10 @@ function City(props) {
     const [validationError, setValidationError] = useState(null);
 
     const validate = (event) => {
-        const cityCodePattern = /^[A-Za-z ]+$/;
+        const cityCodePattern = /^[A-zÀ-ú -]+$/;
         const valid = cityCodePattern.test(event.target.value);
         if (!valid) {
-            setValidationError('* should be any letter between a-z');
+            setValidationError('* should be any letter between A-z');
             props.clearResponse();
         } else {
             setValidationError('');
@@ -26,21 +26,19 @@ function City(props) {
                         }
                     `}
                     </style>
-                    <input 
-                        type="text" 
-                        className="form-control" 
-                        id="textbox" 
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="textboxSearchBar"
                         placeholder="example: Bulls"
-                        onKeyPress={(event) => {
-                            if (event.key === "Enter") {
-                                validate(event);
-                            }
-                        }}
-                    ></input>   
+                        onClick={(event) => { validate(event);}}
+                        onKeyPress={(event) => { if (event.key === "Enter") { validate(event);} }
+                        }
+                    ></input>
                 </div>
             </div>
             <div className="pl-3 row">
-                <div className="text-danger small"> { validationError }</div>
+                <div className="text-danger small"> {validationError}</div>
             </div>
         </div>
     );

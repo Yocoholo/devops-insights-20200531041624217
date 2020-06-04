@@ -23,7 +23,7 @@ sinon.spy(resMock, "send");
 
 describe('Get Weather', function() {
 
-  it('with without zip code', function() {
+  it('with without city ', function() {
     reqMock = {
       query: {
 
