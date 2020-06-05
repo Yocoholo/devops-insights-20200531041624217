@@ -40,7 +40,7 @@ exports.getWeather = function(req, res) {
 router.get('/getWeather', exports.getWeather);
 
 exports.getWeather3 = function(req, res) {
-	var city = req.query.zip;
+	var city = req.query.city;
 	if( (city === null) || (typeof(city) === 'undefined') ) {
 		return res.status(400).send('City Name missing');
 	}
