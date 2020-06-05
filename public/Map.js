@@ -1,21 +1,20 @@
-var map;
-
-var BULLS = {
-    lat: -40.174,
-    lng: 175.384
-}
-
 function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
+    var BULLS = {
+        lat: -40.174,
+        lng: 175.384
+    }
+    var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 8,
         center: BULLS
     });
-    marker = new google.maps.Marker({
+
+    var marker = new google.maps.Marker({
         map: map,
         draggable: true,
         animation: google.maps.Animation.DROP,
         position: BULLS
     });
+
     map.addListener('click', function (mapsMouseEvent) {
         console.log(mapsMouseEvent.latLng.toString())
         marker.setPosition(mapsMouseEvent.latLng)
@@ -38,6 +37,7 @@ function initMap() {
             console.error(error)
         })
     });
+
     marker.addListener('click', function () {
         map.setZoom(map.zoom + 1);
         map.setCenter(marker.getPosition());
